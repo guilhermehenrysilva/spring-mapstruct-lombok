@@ -2,6 +2,7 @@ package com.example.demo.delivery;
 
 import com.example.demo.delivery.dto.CustomerDTO;
 import com.example.demo.delivery.model.Customer;
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
@@ -12,7 +13,7 @@ public interface CustomerMapper {
     @Mapping(target="lastName", source="sobrenome")
     Customer toEntity(CustomerDTO customerDTO);
 
-    @Mapping(target="sobrenome", source="lastName")
+    @InheritInverseConfiguration
     CustomerDTO toDTO(Customer customer);
 
 }
